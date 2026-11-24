@@ -8,8 +8,6 @@ Comparing three controllers (classical PID, model-based LQR and a reinforcement 
 
 Everything is written from scratch in Python (numpy, scipy, matplotlib). The RL agents are small neural networks trained with Augmented Random Search (Mania et al., 2018).
 
-The full write-up is in [`report/PID_vs_LQR_vs_RL_Report.pdf`](report/PID_vs_LQR_vs_RL_Report.pdf).
-
 ## Systems
 
 | Unicycle | Four-thruster satellite | Reaction-wheel satellite |
@@ -36,7 +34,6 @@ unicycle/              wheeled inverted pendulum with a 5 kg mass
 thruster_satellite/    2D satellite, one thruster per side
 wheel_satellite_3/     3 reaction wheels + 1 thruster
 wheel_satellite_4/     4 reaction wheels + 1 thruster, retrained RL and residual RL
-report/                PDF report
 media/                 setup diagrams and animations
 ```
 
@@ -46,7 +43,7 @@ Each system folder has:
 - `train_rl.py` (`train_v2.py` for 4 wheels): trains the RL agent and saves it as `.npz`
 - `evaluate.py`: runs every test and writes plots, an animation and `results.txt`
 - `*.npz`: the trained agents, so you can evaluate without retraining
-- `results/`: the outputs used in the report
+- `results/`: saved outputs from the last run
 
 ## Running it
 
@@ -69,8 +66,8 @@ python3 evaluate.py
 
 Training takes from about 25 seconds (unicycle) to about 20 minutes (4-wheel RL) on a laptop CPU. `evaluate.py` writes its outputs into the folder it runs in.
 
-`wheel_satellite_4/rl_residual_first_attempt.npz` and `rl_v2_stage1.npz` are earlier versions kept on purpose. The first residual agent learned to game the reward by spinning while firing the thruster (see section 9 of the report).
+`wheel_satellite_4/rl_residual_first_attempt.npz` and `rl_v2_stage1.npz` are earlier versions kept on purpose. The first residual agent learned to game the reward by spinning while firing the thruster instead of actually stopping the spin.
 
 ## Limitations
 
-These are 2D models with simplified physics: no friction, fuel slosh or environmental torques. Training and testing use the same simulator, and each RL agent was trained once, with no seed-to-seed comparison. See section 10 of the report.
+These are 2D models with simplified physics: no friction, fuel slosh or environmental torques. Training and testing use the same simulator, and each RL agent was trained once, with no seed-to-seed comparison.
