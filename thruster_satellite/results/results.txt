@@ -1,0 +1,24 @@
+Scenario                                                     Ctrl Spin<0.1°/s at All normal at  Fuel(g)  Pulses Final °/s Final att° Drift mm/s
+1. Normal separation: 30°/s spin, 20° off, 0.18 m/s drift    PID          34.2 s        34.2 s      163     785     0.001      -0.26        1.9
+1. Normal separation: 30°/s spin, 20° off, 0.18 m/s drift    LQR          40.3 s        40.3 s      119     801     0.001      -0.71        0.7
+1. Normal separation: 30°/s spin, 20° off, 0.18 m/s drift    RL           30.7 s        30.7 s      182    3363     0.001      -0.05        0.5
+2. Violent separation: -40°/s, 150° off, 0.3 m/s drift       PID          55.0 s        55.0 s      240    1064    -0.001       0.70        1.0
+2. Violent separation: -40°/s, 150° off, 0.3 m/s drift       LQR          65.1 s         never      209    1094    -0.012       1.59        1.3
+2. Violent separation: -40°/s, 150° off, 0.3 m/s drift       RL           52.0 s        52.0 s      245    3294     0.010      -0.03        2.3
+3. Heavier than expected: 130 kg (designed for 100)          PID          54.7 s        54.7 s      248    1120     0.002       0.76        0.7
+3. Heavier than expected: 130 kg (designed for 100)          LQR          36.3 s         never      173     876     0.027       1.07        0.5
+3. Heavier than expected: 130 kg (designed for 100)          RL           35.1 s        35.1 s      218    3354    -0.015      -0.09        0.2
+4. Weak thruster: top thruster at 60 %                       PID          46.8 s        46.8 s      176     983     0.007       0.42        2.4
+4. Weak thruster: top thruster at 60 %                       LQR          42.4 s        42.4 s      127     835     0.001      -0.39        1.0
+4. Weak thruster: top thruster at 60 %                       RL           45.5 s        45.5 s      203    3853     0.007      -0.07        0.4
+5. Dead thruster: right thruster failed                      PID          61.6 s         never      170    1900    -0.010     -40.86      154.1
+5. Dead thruster: right thruster failed                      LQR           never         never      330    3303    -4.047    -178.54      157.7
+5. Dead thruster: right thruster failed                      RL            never         never       97    1732     0.177     -83.15      197.2
+6. Noisy gyro and star tracker                               PID          38.6 s        38.6 s      183    1463     0.001       0.14        0.4
+6. Noisy gyro and star tracker                               LQR          37.1 s        37.1 s      162    2020    -0.043       0.13        0.5
+6. Noisy gyro and star tracker                               RL           30.7 s        30.7 s      189    3281     0.001      -0.04        0.4
+
+Monte Carlo, 120 random separations (spin 5–45°/s, any attitude, drift ≤0.35 m/s, mass 70–150 kg, each thruster 60–100 % healthy, sensor noise), 120 s limit:
+  PID: fully recovered 98%  | median time 46.9 s  | median fuel 168 g
+  LQR: fully recovered 100%  | median time 45.3 s  | median fuel 135 g
+  RL: fully recovered 100%  | median time 41.3 s  | median fuel 170 g

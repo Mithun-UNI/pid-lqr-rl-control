@@ -1,0 +1,34 @@
+Scenario                                                   Ctrl Fell  Settle(s)  MaxTilt°   Effort Drift(m)
+1. Recover from 10° tilt (5 kg)                            PID  False      0.43      10.1      3.1   -0.052
+1. Recover from 10° tilt (5 kg)                            LQR  False      0.97      10.1      2.3   -0.002
+1. Recover from 10° tilt (5 kg)                            RL   False      1.44      10.2      1.0   -0.037
+2. 40 N shove at t=2 s (5 kg)                              PID  False      4.69       5.4      1.6    0.269
+2. 40 N shove at t=2 s (5 kg)                              LQR  False      3.96       6.8      1.7    0.015
+2. 40 N shove at t=2 s (5 kg)                              RL   False      5.48       8.3      1.6   -0.039
+3. Heavier load 8 kg, 10° tilt (unknown to controller)     PID  False      0.68      10.3      3.2   -0.049
+3. Heavier load 8 kg, 10° tilt (unknown to controller)     LQR  False      1.06      10.3      2.3    0.000
+3. Heavier load 8 kg, 10° tilt (unknown to controller)     RL   False      2.68      10.4      1.5   -0.038
+4. Lighter load 3 kg, 10° tilt                             PID  False      0.37      10.1      3.1   -0.055
+4. Lighter load 3 kg, 10° tilt                             LQR  False      0.90      10.1      2.5   -0.004
+4. Lighter load 3 kg, 10° tilt                             RL   False      1.46      10.1      0.9   -0.035
+5. 12 kg load (outside RL training range)                  PID  False      0.88      10.5      3.7   -0.046
+5. 12 kg load (outside RL training range)                  LQR  False      1.13      10.5      2.8    0.002
+5. 12 kg load (outside RL training range)                  RL   False      2.67      10.8      4.5   -0.038
+6. 10° tilt + noisy sensors                                PID  False      0.39      10.1      3.8   -0.034
+6. 10° tilt + noisy sensors                                LQR  False      1.18      10.1      3.1    0.010
+6. 10° tilt + noisy sensors                                RL   False      1.46      10.2      1.5   -0.027
+
+Mass sweep (10° start tilt): range of top mass each controller survives
+  PID: survives 1.0–20.0 kg
+  LQR: survives 1.0–20.0 kg
+  RL: survives 1.0–14.0 kg
+
+Largest start tilt recovered (5 kg):
+  PID: 34°
+  LQR: 37°
+  RL: 35°
+
+Monte Carlo, 300 random cases (mass 2–12 kg, tilt ±20°, shove ±50 N, noisy sensors): success rate
+  PID: 99.3%
+  LQR: 100.0%
+  RL: 96.3%

@@ -1,0 +1,35 @@
+Scenario                                                         Ctrl   Spin stopped All normal Fuel g Peak rpm Final °/s Final ° Drift mm/s
+1. Normal separation: 30°/s, 20° off, 0.18 m/s drift             PID           110 s      110 s     26     3802     0.000   -0.00        1.7
+1. Normal separation: 30°/s, 20° off, 0.18 m/s drift             LQR           110 s      110 s     26     3985    -0.000    0.00        1.7
+1. Normal separation: 30°/s, 20° off, 0.18 m/s drift             RL            167 s      never     42     3835    -0.004    4.09       11.1
+1. Normal separation: 30°/s, 20° off, 0.18 m/s drift             RL+PID        111 s      111 s     41     4492    -0.000    0.00        1.8
+2. Violent separation: -35°/s, 150° off, 0.3 m/s drift           PID           110 s      110 s     43     4348     0.000   -0.00        1.7
+2. Violent separation: -35°/s, 150° off, 0.3 m/s drift           LQR           121 s      121 s     43     4379     0.000   -0.00        1.7
+2. Violent separation: -35°/s, 150° off, 0.3 m/s drift           RL            182 s      never     71     4947    -0.011   -3.14        6.5
+2. Violent separation: -35°/s, 150° off, 0.3 m/s drift           RL+PID        126 s      126 s     71     5450     0.000   -0.00        1.6
+3. One wheel dead + 30°/s spin                                   PID           164 s      164 s     26     5948     0.000   -0.00        1.6
+3. One wheel dead + 30°/s spin                                   LQR           178 s      178 s     26     6000     0.000   -0.00        1.6
+3. One wheel dead + 30°/s spin                                   RL            198 s      never     45     5656     0.022    3.71        8.9
+3. One wheel dead + 30°/s spin                                   RL+PID        159 s      159 s     41     5758     0.000   -0.00        1.8
+4. 55°/s spin: more momentum than the 3 wheels can hold          PID           never      never      0     6000     3.228  -69.01      180.0
+4. 55°/s spin: more momentum than the 3 wheels can hold          LQR           never      never      0     6000     3.228  -69.01      180.0
+4. 55°/s spin: more momentum than the 3 wheels can hold          RL            never      never     71     6000     1.206   51.04        2.3
+4. 55°/s spin: more momentum than the 3 wheels can hold          RL+PID        never      never     55     6000     1.682   43.11        2.7
+5. Thruster misaligned 8 cm (big disturbance torque in burns)    PID           110 s      110 s     26     3663     0.000   -0.00        1.8
+5. Thruster misaligned 8 cm (big disturbance torque in burns)    LQR           110 s      110 s     26     3847    -0.000    0.00        1.7
+5. Thruster misaligned 8 cm (big disturbance torque in burns)    RL            161 s      never     43     3538    -0.004    3.50        8.9
+5. Thruster misaligned 8 cm (big disturbance torque in burns)    RL+PID        111 s      111 s     42     4234    -0.000    0.00        1.8
+6. Heavier than expected: 130 kg                                 PID           175 s      175 s     34     6000     0.000   -0.00        1.8
+6. Heavier than expected: 130 kg                                 LQR           181 s      181 s     34     6000    -0.000    0.00        1.7
+6. Heavier than expected: 130 kg                                 RL            226 s      never     59     4867    -0.034    4.83       11.4
+6. Heavier than expected: 130 kg                                 RL+PID        132 s      132 s     53     4607     0.000   -0.00        1.8
+7. Raw (unfiltered) sensor noise                                 PID           never      never     26     4423     1.499 -149.80        2.3
+7. Raw (unfiltered) sensor noise                                 LQR           never      never     26     4471    -0.126    0.37        1.9
+7. Raw (unfiltered) sensor noise                                 RL            186 s      never     42     3829    -0.042    4.06       13.0
+7. Raw (unfiltered) sensor noise                                 RL+PID        never      never     41     4134    -2.429   -4.38        3.0
+
+Monte Carlo, 100 random separations (spin 5–40°/s, any attitude, drift ≤0.3 m/s, mass 70–140 kg, 25 % with a dead wheel, misalignment 0–8 cm, filtered-navigation noise), 250 s limit:
+  PID   : fully recovered  94%  | median time (successes) 113.1 s  | median fuel  19 g
+  LQR   : fully recovered  94%  | median time (successes) 117.2 s  | median fuel  19 g
+  RL    : fully recovered   0%  | median time (successes)   nan s  | median fuel  38 g
+  RL+PID: fully recovered  94%  | median time (successes) 133.2 s  | median fuel  35 g

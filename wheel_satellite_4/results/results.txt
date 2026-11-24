@@ -1,0 +1,48 @@
+Scenario                                                         Ctrl      Spin stopped All normal Fuel g Peak rpm Final °/s Final ° Drift mm/s
+1. Normal separation: 30°/s, 20° off, 0.18 m/s drift             PID              115 s      115 s     26     2798     0.000   -0.00        1.6
+1. Normal separation: 30°/s, 20° off, 0.18 m/s drift             LQR              119 s      119 s     26     2976    -0.000    0.00        1.6
+1. Normal separation: 30°/s, 20° off, 0.18 m/s drift             RL v2             54 s      never     23     3209    -0.000   -0.12       73.7
+1. Normal separation: 30°/s, 20° off, 0.18 m/s drift             RLv2→PID         154 s      154 s     34     3753     0.000   -0.00        1.7
+1. Normal separation: 30°/s, 20° off, 0.18 m/s drift             PID+RLres        114 s      114 s     26     2803     0.000   -0.01        1.0
+2. Violent separation: -35°/s, 150° off, 0.3 m/s drift           PID              106 s      106 s     43     3972     0.000   -0.00        1.6
+2. Violent separation: -35°/s, 150° off, 0.3 m/s drift           LQR              106 s      106 s     43     4021     0.000   -0.00        1.6
+2. Violent separation: -35°/s, 150° off, 0.3 m/s drift           RL v2             74 s      never     53     4068     0.000    0.15       58.1
+2. Violent separation: -35°/s, 150° off, 0.3 m/s drift           RLv2→PID         137 s      137 s     62     4110    -0.000    0.00        1.7
+2. Violent separation: -35°/s, 150° off, 0.3 m/s drift           PID+RLres         96 s       96 s     43     3974     0.000    0.00        1.8
+3. One wheel dead + 30°/s spin                                   PID              110 s      110 s     26     3802     0.000   -0.00        1.7
+3. One wheel dead + 30°/s spin                                   LQR              110 s      110 s     26     3985    -0.000    0.00        1.7
+3. One wheel dead + 30°/s spin                                   RL v2             90 s       90 s     56     3985     0.000   -0.01        1.2
+3. One wheel dead + 30°/s spin                                   RLv2→PID          90 s       90 s     56     4015    -0.000    0.00        1.8
+3. One wheel dead + 30°/s spin                                   PID+RLres        109 s      109 s     26     3814     0.000   -0.01        1.1
+4. 55°/s spin (was impossible with 3 wheels)                     PID              128 s      128 s     26     5700     0.000   -0.00        1.6
+4. 55°/s spin (was impossible with 3 wheels)                     LQR              141 s      141 s     26     5749    -0.000    0.00        1.7
+4. 55°/s spin (was impossible with 3 wheels)                     RL v2             66 s       66 s     41     4924    -0.000    0.10        1.5
+4. 55°/s spin (was impossible with 3 wheels)                     RLv2→PID          74 s       74 s     41     4892     0.000   -0.00        3.6
+4. 55°/s spin (was impossible with 3 wheels)                     PID+RLres        127 s      127 s     26     5701     0.000    0.01        1.2
+4b. 70°/s spin: more than even 4 wheels can hold                 PID              never      never      0     6000     1.006  -85.21      180.0
+4b. 70°/s spin: more than even 4 wheels can hold                 LQR              never      never      0     6000     1.004  -85.66      180.0
+4b. 70°/s spin: more than even 4 wheels can hold                 RL v2            166 s      166 s     47     6000    -0.000    0.10        1.2
+4b. 70°/s spin: more than even 4 wheels can hold                 RLv2→PID         173 s      173 s     47     6000     0.000   -0.00        3.4
+4b. 70°/s spin: more than even 4 wheels can hold                 PID+RLres        never      never      0     6000     1.011  -84.30      180.0
+5. Thruster misaligned 8 cm (big disturbance torque in burns)    PID              122 s      122 s     26     2798     0.000   -0.00        1.7
+5. Thruster misaligned 8 cm (big disturbance torque in burns)    LQR              126 s      126 s     26     2976    -0.000    0.00        1.7
+5. Thruster misaligned 8 cm (big disturbance torque in burns)    RL v2             47 s      never     24     2954     0.000   -0.10       70.6
+5. Thruster misaligned 8 cm (big disturbance torque in burns)    RLv2→PID         154 s      154 s     34     3661     0.000   -0.00        1.7
+5. Thruster misaligned 8 cm (big disturbance torque in burns)    PID+RLres        121 s      121 s     26     2803     0.000   -0.01        1.1
+6. Heavier than expected: 130 kg                                 PID              117 s      117 s     34     3696     0.000   -0.00        1.8
+6. Heavier than expected: 130 kg                                 LQR              116 s      116 s     34     3880     0.000   -0.00        1.7
+6. Heavier than expected: 130 kg                                 RL v2            106 s      never     51     4610     0.000   -0.00       37.7
+6. Heavier than expected: 130 kg                                 RLv2→PID         128 s      128 s     52     4610     0.000   -0.00        1.7
+6. Heavier than expected: 130 kg                                 PID+RLres        108 s      108 s     34     3753     0.000   -0.02        1.9
+7. Raw (unfiltered) sensor noise                                 PID              never      never     26     3145     2.955 -168.73        1.2
+7. Raw (unfiltered) sensor noise                                 LQR              never      never     26     3468     4.469   14.45        1.8
+7. Raw (unfiltered) sensor noise                                 RL v2            249 s      never     23     3210     0.017   -0.12       73.8
+7. Raw (unfiltered) sensor noise                                 RLv2→PID         never      never     33     3751    -1.882    8.41        2.5
+7. Raw (unfiltered) sensor noise                                 PID+RLres        never      never     26     2842    -2.524   -9.50        0.9
+
+Monte Carlo, 100 random separations (spin 5–40°/s, any attitude, drift ≤0.3 m/s, mass 70–140 kg, 25 % with a dead wheel, misalignment 0–8 cm, filtered-navigation noise), 250 s limit:
+  PID      : fully recovered 100%  | median time (successes)  95.4 s  | median fuel  22 g
+  LQR      : fully recovered 100%  | median time (successes)  96.5 s  | median fuel  22 g
+  RL v2    : fully recovered  48%  | median time (successes)  59.1 s  | median fuel  23 g
+  RLv2→PID : fully recovered 100%  | median time (successes)  98.5 s  | median fuel  31 g
+  PID+RLres: fully recovered 100%  | median time (successes)  93.7 s  | median fuel  22 g
